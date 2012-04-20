@@ -56,6 +56,10 @@ BrowserID.Modules.Actions = (function() {
       if(data.ready) _.defer(data.ready);
     },
 
+    doRPInfo: function(info) {
+      startService("rp_info", info);
+    },
+
     doCancel: function() {
       if(onsuccess) onsuccess(null);
     },
