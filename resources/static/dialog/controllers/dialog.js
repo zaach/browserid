@@ -116,6 +116,7 @@ BrowserID.Modules.Dialog = (function() {
           hash = win.location.hash;
 
       setOrigin(origin_url);
+      user.setReturnPath(params && params.newUserReturnPath);
 
       var actions = startActions.call(self, success, error);
       startStateMachine.call(self, actions);

@@ -65,7 +65,7 @@ BrowserID.State = (function() {
 
     handleState("window_unload", function() {
       if (!self.success) {
-        storage.setStagedOnBehalfOf("");
+        storage.setStagedOnBehalfOf();
         // do not call doCancel here, let winchan's cancel
         // handling do the work. This gives us consistent semantics
         // across browsers on the RP side of the WinChan.

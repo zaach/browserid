@@ -1114,7 +1114,11 @@
       // The experimental API, not yet final
       experimental: {
         request: function(options) {
+          options = options || {};
           checkCompat(false);
+          if (!options.newUserReturnPath) {
+            options.newUserReturnPath = window.location.pathname;
+          }
           return internalRequest(options);
         },
         watch: function(options) {
@@ -1152,6 +1156,8 @@
           }
           observers.login = observers.logout = observers.ready = null;
         };
+        // can't use this feature with .get()
+        if (options.newUserReturnPath) delete options.newUserReturnPath;
         if (options && options.silent) {
           if (callback) setTimeout(function() { callback(null); }, 0);
         } else {

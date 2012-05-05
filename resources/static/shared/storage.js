@@ -135,15 +135,16 @@ BrowserID.Storage = (function() {
     }
   }
 
-  function setStagedOnBehalfOf(origin) {
+  function setStagedOnBehalfOf(origin, redirectPath) {
     storage.stagedOnBehalfOf = JSON.stringify({
       at: new Date().toString(),
-      origin: origin
+      origin: origin,
+      redirectPath: redirectPath
     });
   }
 
   function getStagedOnBehalfOf() {
-    var origin;
+    var data = {};
 
     try {
       var staged = JSON.parse(storage.stagedOnBehalfOf);
@@ -151,13 +152,16 @@ BrowserID.Storage = (function() {
       if (staged) {
         if ((new Date() - new Date(staged.at)) > (5 * 60 * 1000)) throw "stale";
         if (typeof(staged.origin) !== 'string') throw "malformed";
-        origin = staged.origin;
+        data.origin = staged.origin;
+        if (typeof(staged.redirectPath) === 'string') {
+          data.redirectPath = staged.redirectPath;
+        }
       }
     } catch (x) {
       storage.removeItem("stagedOnBehalfOf");
     }
 
-    return origin;
+    return data;
   }
 
   function siteSet(site, key, value) {

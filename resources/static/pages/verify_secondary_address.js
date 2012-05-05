@@ -28,9 +28,13 @@ BrowserID.verifySecondaryAddress = (function() {
   function showRegistrationInfo(info) {
     dom.setInner("#email", info.email);
 
-    if (info.origin) {
-      dom.setInner(".website", info.origin);
+    if (info.origin.origin) {
+      dom.setInner(".website", info.origin.origin);
       dom.show(".siteinfo");
+    }
+
+    if (info.origin.redirectPath) {
+      alert("XXX: send this user back to" + info.origin.origin + info.origin.redirectPath);
     }
   }
 

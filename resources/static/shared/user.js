@@ -7,7 +7,7 @@
 BrowserID.User = (function() {
   "use strict";
 
-  var jwcrypto, origin,
+  var jwcrypto, origin, returnPath,
       bid = BrowserID,
       network = bid.Network,
       storage = bid.Storage,
@@ -113,7 +113,7 @@ BrowserID.User = (function() {
           // As soon as the registration comes back as complete, we should
           // ensure that the stagedOnBehalfOf is cleared so there is no stale
           // data.
-          storage.setStagedOnBehalfOf("");
+          storage.setStagedOnBehalfOf();
 
           // To avoid too many address_info requests, returns from each
           // address_info request are cached.  If the user is doing
@@ -256,9 +256,27 @@ BrowserID.User = (function() {
     },
 
     /**
+     * setReturnPath
+     * @method setReturnPath
+     * @param {string} path
+     */
+    setReturnPath: function(returnPathArg) {
+      returnPath = returnPathArg;
+    },
+
+    /**
+     * getReturnPath
+     * @method getReturnPath
+     * @returns {string} path
+     */
+    getReturnPath: function() {
+      return returnPath;
+    },
+
+    /**
      * Get the origin of the current host being signed in to.
      * @method getOrigin
-     * @return {string} origin
+     * @returns {string} origin
      */
     getOrigin: function() {
       return origin;
@@ -288,7 +306,7 @@ BrowserID.User = (function() {
       // XXX - this will have to be updated to either store both the hostname
       // and the exact URL of the RP or just the URL of the RP and the origin
       // is extracted from that.
-      storage.setStagedOnBehalfOf(User.getHostname());
+      storage.setStagedOnBehalfOf(User.getOrigin(), User.getReturnPath());
 
       network.createUser(email, password, origin, onComplete, onFailure);
     },
@@ -508,7 +526,7 @@ BrowserID.User = (function() {
 
             if(valid) {
               result = _.extend({ valid: valid, origin: storage.getStagedOnBehalfOf() }, info);
-              storage.setStagedOnBehalfOf("");
+              storage.setStagedOnBehalfOf();
             }
 
             complete(onComplete, result);
@@ -804,7 +822,7 @@ BrowserID.User = (function() {
      */
     addEmail: function(email, password, onComplete, onFailure) {
       network.addSecondaryEmail(email, password, origin, function(added) {
-        if (added) storage.setStagedOnBehalfOf(User.getHostname());
+        if (added) storage.setStagedOnBehalfOf(User.getOrigin(), User.getReturnPath());
 
         // we no longer send the keypair, since we will certify it later.
         if (onComplete) onComplete(added);
@@ -870,7 +888,7 @@ BrowserID.User = (function() {
 
             if(valid) {
               result = _.extend({ valid: valid, origin: storage.getStagedOnBehalfOf() }, info);
-              storage.setStagedOnBehalfOf("");
+              storage.setStagedOnBehalfOf();
             }
 
             complete(onComplete, result);
