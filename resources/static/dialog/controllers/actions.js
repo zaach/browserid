@@ -144,8 +144,17 @@ BrowserID.Modules.Actions = (function() {
       startService("provision_primary_user", info);
     },
 
+    doProvisionProxyIdpUser: function(info) {
+      startService("provision_proxyidp_user", info);
+    },
+
     doVerifyPrimaryUser: function(info) {
       startService("verify_primary_user", info);
+    },
+
+    doVerifyProxyIdpUser: function(info) {
+      console.log('AOK actions.js start service verify_proxyidp_user');
+      startService("verify_proxyidp_user", info);
     },
 
     doCannotVerifyRequiredPrimary: function(info) {

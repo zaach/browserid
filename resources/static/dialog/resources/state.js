@@ -105,18 +105,29 @@ BrowserID.State = (function() {
     });
 
     handleState("primary_user", function(msg, info) {
+      console.log('AOK primary_user state - handle', info);
       addPrimaryUser = !!info.add;
       email = info.email;
 
       var idInfo = storage.getEmail(email);
       if(idInfo && idInfo.cert) {
+        // AOK logged in, we go here and this is ALL GOOD.
+        console.log('AOK primary_user state redirect to primary_user_ready');
         redirectToState("primary_user_ready", info);
       }
       else {
         // We don't want to put the provisioning step on the stack, instead when
         // a user cancels this step, they should go back to the step before the
         // provisioning.
-        startAction(false, "doProvisionPrimaryUser", info);
+        // AOK not logged in , we go here... should go directly to auth
+        if (info.type === 'proxyidp') {
+          console.log('AOK primary_user state - BOOO YA starting action doProvisionProxyIdpUser');
+          startAction(false, "doProvisionProxyIdpUser", info);
+        } else {
+          console.log('AOK primary_user state - starting action doProvisionPrimaryUser');
+          startAction(false, "doProvisionPrimaryUser", info);
+        }
+
       }
     });
 
@@ -155,6 +166,38 @@ BrowserID.State = (function() {
       }
     });
 
+    handleState("proxyidp_user_unauthenticated", function(msg, info) {
+      console.log('AOK OKAY! proxyidp_user_unauthenticated...');
+      info = helpers.extend(info || {}, {
+        add: !!addPrimaryUser,
+        email: email,
+        requiredEmail: !!requiredEmail,
+        privacyURL: self.privacyURL,
+        tosURL: self.tosURL
+      });
+
+      if(primaryVerificationInfo) {
+        primaryVerificationInfo = null;
+        if(requiredEmail) {
+          startAction("doCannotVerifyRequiredPrimary", info);
+        }
+        else if(info.add) {
+          // Add the pick_email in case the user cancels the add_email screen.
+          // The user needs something to go "back" to.
+          redirectToState("pick_email");
+          redirectToState("add_email", info);
+        }
+        else {
+          redirectToState("authenticate", info);
+        }
+      }
+      else {
+        console.log('AOK - state.js starting action doVerifyProxyIdpUser');
+
+        startAction("doVerifyProxyIdpUser", info);
+      }
+    });
+
     handleState("primary_user_authenticating", function(msg, info) {
       // Keep the dialog from automatically closing when the user browses to
       // the IdP for verification.
@@ -176,7 +219,7 @@ BrowserID.State = (function() {
 
     handleState("email_chosen", function(msg, info) {
       info = info || {};
-
+      console.log('AOK state email_chosen');
       var email = info.email,
           idInfo = storage.getEmail(email);
 
@@ -188,10 +231,13 @@ BrowserID.State = (function() {
 
       if(idInfo) {
         if(idInfo.type === "primary") {
+          console.log('AOK state email_chosen primary');
           if(idInfo.cert) {
+            console.log('AOK state email_chsen start action doEmailChosen');
             startAction("doEmailChosen", info);
           }
           else {
+            console.log('AOK state email_chosen redirect to state primary_user');
             // If the email is a primary, and their cert is not available,
             // throw the user down the primary flow.
             // Doing so will catch cases where the primary certificate is expired
