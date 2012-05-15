@@ -145,6 +145,7 @@ BrowserID.PageHelpers = (function() {
       url: "https://browserid.org/authenticate_with_primary",
       // This is the relay that will be used when the IdP redirects to sign_in_complete
       relay_url: "https://browserid.org/relay",
+      // Caution: If you change this width or height, also update mozilla/browserid-bigtent
       window_features: "width=700,height=375",
       params: url
     }, function(error, result) {
