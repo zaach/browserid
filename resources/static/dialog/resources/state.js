@@ -45,7 +45,7 @@ BrowserID.State = (function() {
         // Invalid format
         startAction("doError", "invalid_required_email", {email: requiredEmail});
       }
-      else if(info.email && info.type === "primary") {
+      else if (info.email && info.type === "primary") {
         self.primaryVerificationInfo = info;
         redirectToState("primary_user", info);
       }
@@ -106,15 +106,15 @@ BrowserID.State = (function() {
        */
       info = _.extend({ email: self.newUserEmail || self.addEmailEmail || self.resetPasswordEmail }, info);
 
-      if(self.newUserEmail) {
+      if (self.newUserEmail) {
         self.newUserEmail = null;
         startAction(false, "doStageUser", info);
       }
-      else if(self.addEmailEmail) {
+      else if (self.addEmailEmail) {
         self.addEmailEmail = null;
         startAction(false, "doStageEmail", info);
       }
-      else if(self.resetPasswordEmail) {
+      else if (self.resetPasswordEmail) {
         self.resetPasswordEmail = null;
         startAction(false, "doResetPassword", info);
       }
@@ -132,18 +132,10 @@ BrowserID.State = (function() {
     });
 
     handleState("primary_user", function(msg, info) {
-<<<<<<< HEAD
-      addPrimaryUser = !!info.add;
-      email = info.email;
-
-      var idInfo = storage.getEmail(email);
-      if (idInfo && idInfo.cert) {
-=======
       self.addPrimaryUser = !!info.add;
       var email = self.email = info.email,
           idInfo = storage.getEmail(email);
-      if(idInfo && idInfo.cert) {
->>>>>>> Call the IdP redirection code without first showing the verification screen if the email address is handled by a proxy IdP
+      if (idInfo && idInfo.cert) {
         redirectToState("primary_user_ready", info);
       }
       else {
@@ -155,45 +147,29 @@ BrowserID.State = (function() {
     });
 
     handleState("primary_user_provisioned", function(msg, info) {
-<<<<<<< HEAD
-      info.add = !!addPrimaryUser;
       // The user is is authenticated with their IdP. Two possibilities exist
       // for the email - 1) create a new account or 2) add address to the
       // existing account. If the user is authenticated with BrowserID, #2
       // will happen. If not, #1.
-=======
       info = info || {};
       info.add = !!self.addPrimaryUser;
->>>>>>> Call the IdP redirection code without first showing the verification screen if the email address is handled by a proxy IdP
       startAction("doPrimaryUserProvisioned", info);
     });
 
     handleState("primary_user_unauthenticated", function(msg, info) {
-<<<<<<< HEAD
-      info = helpers.extend(info, {
-        add: !!addPrimaryUser,
-        email: email,
-=======
       var requiredEmail = self.requiredEmail;
 
       info = helpers.extend(info || {}, {
         add: !!self.addPrimaryUser,
         email: self.email,
->>>>>>> Call the IdP redirection code without first showing the verification screen if the email address is handled by a proxy IdP
         requiredEmail: !!requiredEmail,
         privacyURL: self.privacyURL,
         tosURL: self.tosURL
       });
 
-<<<<<<< HEAD
-      if (primaryVerificationInfo) {
-        primaryVerificationInfo = null;
-        if (requiredEmail) {
-=======
-      if(self.primaryVerificationInfo) {
+      if (self.primaryVerificationInfo) {
         self.primaryVerificationInfo = null;
-        if(requiredEmail) {
->>>>>>> Call the IdP redirection code without first showing the verification screen if the email address is handled by a proxy IdP
+        if (requiredEmail) {
           startAction("doCannotVerifyRequiredPrimary", info);
         }
         else if (info.add) {
@@ -383,7 +359,7 @@ BrowserID.State = (function() {
 
     handleState("add_email_submit_with_secondary", function(msg, info) {
       user.passwordNeededToAddSecondaryEmail(function(passwordNeeded) {
-        if(passwordNeeded) {
+        if (passwordNeeded) {
           self.addEmailEmail = info.email;
           startAction(false, "doSetPassword", info);
         }
