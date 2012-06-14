@@ -30,6 +30,7 @@ var daemonsToRun = {
   },
   proxy: { },
   browserid: { },
+  static: { },
   router: { }
 };
 
@@ -55,6 +56,7 @@ process.env['BROWSERID_URL'] = 'http://' + HOST + ":10007";
 process.env['VERIFIER_URL'] = 'http://' + HOST + ":10000/verify";
 process.env['KEYSIGNER_URL'] = 'http://' + HOST + ":10003";
 process.env['ROUTER_URL'] = 'http://' + HOST + ":10002";
+process.env['STATIC_URL'] = 'http://' + HOST + ":10010";
 
 process.env['URL'] = process.env['ROUTER_URL'];
 
@@ -69,6 +71,7 @@ if (config.get('env').substr(0,5) === 'test_') {
     process.env['DATABASE_NAME'] =  process.env['DATABASE_NAME'] || temp.path({suffix: '.db'});
     console.log("temp json database:", process.env['DATABASE_NAME']);
   }
+  process.env['MDB_INDEX'] = process.env['MDB_INDEX'] || 0;
 }
 
 function runDaemon(daemon, cb) {
