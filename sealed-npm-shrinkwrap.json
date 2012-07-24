@@ -1,0 +1,461 @@
+{
+  "name": "browserid",
+  "version": "0.0.1",
+  "dependencies": {
+    "JSONSelect": {
+      "version": "0.4.0",
+      "shasum": "fd7765f325ed0b0779071416fabbc2e45c7c7fa8"
+    },
+    "bcrypt": {
+      "version": "0.4.1",
+      "shasum": "1ca4eee8ad55c89de8704338c103188a4507d351"
+    },
+    "compute-cluster": {
+      "version": "0.0.6",
+      "dependencies": {
+        "vows": {
+          "version": "0.6.0",
+          "dependencies": {
+            "eyes": {
+              "version": "0.1.7",
+              "shasum": "1a59dafab790f142452e312bc14f5908094cb80c"
+            }
+          },
+          "shasum": "d07ac654519eb7cbf1c6b8049a914b3ec6f80538"
+        }
+      },
+      "shasum": "6e09731be939bce02d21fa552006dd71003c59ce"
+    },
+    "connect": {
+      "version": "1.7.2",
+      "dependencies": {
+        "qs": {
+          "version": "0.5.0",
+          "shasum": "68179470c2a5f92458cb2a2c8260db03a949b8fd"
+        },
+        "mime": {
+          "version": "1.2.7",
+          "shasum": "13f3dac624a03fb44692d69474700c78d0986f20"
+        }
+      },
+      "shasum": "976c867b66f082bfed215ba9ad67f6dcfe6b302b"
+    },
+    "convict": {
+      "version": "0.0.6",
+      "dependencies": {
+        "orderly": {
+          "version": "1.0.1",
+          "dependencies": {
+            "nomnom": {
+              "version": "1.5.2",
+              "dependencies": {
+                "underscore": {
+                  "version": "1.1.7",
+                  "shasum": "3c2a3361c2be727e38dbcc9a433fd78b1e9b8524"
+                },
+                "colors": {
+                  "version": "0.5.1",
+                  "shasum": "4bd26c804e231d1b197f89eeb32338c38f928b88"
+                }
+              },
+              "shasum": "7ed296f20474f9860a77d211c6b2891a0b7f4664"
+            }
+          },
+          "shasum": "c7573a3b7b439a633b731260ac2513a0758e7b20"
+        },
+        "JSV": {
+          "version": "3.5.0",
+          "shasum": "543c56bcb145029962a49f373a978693fcae0ed2"
+        }
+      },
+      "shasum": "4639c6b9d5ae1c21ca4a2c074c6e5e51b48083d0"
+    },
+    "cjson": {
+      "version": "0.0.6",
+      "shasum": "62449166022c4805c211d0defa2d40d64e38f039"
+    },
+    "client-sessions": {
+      "version": "0.0.6",
+      "dependencies": {
+        "cookies": {
+          "version": "0.1.7",
+          "from": "https://github.com/benadida/cookies/tarball/d2f0f0b3",
+          "shasum": "848482114df28531be672361f0c320ba0d938783"
+        },
+        "node-proxy": {
+          "version": "0.5.2",
+          "shasum": "93b6146630f47cf05665a6966d108bda18d3324f"
+        }
+      },
+      "shasum": "e1bb3106a591354ea3fa37731f1e83fb0faacc56"
+    },
+    "connect-cachify": {
+      "version": "0.0.10",
+      "shasum": "2cd77cedd6a63719c39417dfa1c1609cffb4859f"
+    },
+    "connect-cookie-session": {
+      "version": "0.0.2",
+      "shasum": "12da453897ed5f78cd77de55582469f6e60f2093"
+    },
+    "connect-logger-statsd": {
+      "version": "0.0.1",
+      "shasum": "8c1396401196a02421c02847e9b0ed321a5a25f0"
+    },
+    "ejs": {
+      "version": "0.4.3",
+      "shasum": "9781baee950a373ff408973c0925dd699b944194"
+    },
+    "etagify": {
+      "version": "0.0.2",
+      "shasum": "67aeac83a8f92d867bd1d39b22c4bd341ce3a075"
+    },
+    "express": {
+      "version": "2.5.0",
+      "dependencies": {
+        "mime": {
+          "version": "1.2.7",
+          "shasum": "13f3dac624a03fb44692d69474700c78d0986f20"
+        },
+        "qs": {
+          "version": "0.5.0",
+          "shasum": "68179470c2a5f92458cb2a2c8260db03a949b8fd"
+        },
+        "mkdirp": {
+          "version": "0.0.7",
+          "shasum": "65505030c774583c497305810f1d7a24bfb8b2b3"
+        }
+      },
+      "shasum": "0b01e0240b5e681ae19909b1fba8ffd62092a3a3"
+    },
+    "gobbledygook": {
+      "version": "0.0.3",
+      "shasum": "d66f9ce884df58deb030301c84cf3017ed2d1de4"
+    },
+    "mustache": {
+      "version": "0.3.1-dev",
+      "shasum": "60a957bcc10342279a341698bd5e9e5c5e624c7b"
+    },
+    "jwcrypto": {
+      "version": "0.3.2",
+      "dependencies": {
+        "browserify": {
+          "version": "1.8.1",
+          "dependencies": {
+            "detective": {
+              "version": "0.0.4",
+              "dependencies": {
+                "burrito": {
+                  "version": "0.2.12",
+                  "dependencies": {
+                    "traverse": {
+                      "version": "0.5.2",
+                      "shasum": "c4af426863baada8b0817253a30f4c0cf673804c"
+                    },
+                    "uglify-js": {
+                      "version": "1.1.1",
+                      "shasum": "265ba382dafcc43471728ad5eddbe549ca56f60a"
+                    }
+                  },
+                  "shasum": "87cb96c846788371ccfb4fc0cb1b46957c228b5d"
+                }
+              },
+              "shasum": "7a13e117ec06a9816277af0035c5ce1af10d8ff6"
+            },
+            "deputy": {
+              "version": "0.0.2",
+              "dependencies": {
+                "mkdirp": {
+                  "version": "0.3.3",
+                  "shasum": "5182839ea79fa8d79bf559f50198359e9769762c"
+                },
+                "detective": {
+                  "version": "0.1.1",
+                  "dependencies": {
+                    "uglify-js": {
+                      "version": "1.2.6",
+                      "shasum": "11bf2e88a7f6635312e16836eb22087fac987422"
+                    }
+                  },
+                  "shasum": "d291967304db947a1d54fdecfb2f741961ad97e6"
+                }
+              },
+              "shasum": "76a790af5d2f570867413c7fe0e358c1335c83a7"
+            },
+            "resolve": {
+              "version": "0.0.4",
+              "shasum": "bd87ecca66e7c526613cd706e47475f364825ab6"
+            },
+            "nub": {
+              "version": "0.0.0",
+              "shasum": "be51c8f9c73665fdf20c8e3e5d45c45075356568"
+            },
+            "commondir": {
+              "version": "0.0.1",
+              "shasum": "bf9b589ce12c668b3f59d7e102bc5a62a5f1136d"
+            },
+            "coffee-script": {
+              "version": "1.1.3",
+              "shasum": "f08262faa25755b036e7161b38dd0fd1730bf732"
+            }
+          },
+          "shasum": "7c3cffd9563efa3ce4f228e72f0a911803ecc646"
+        },
+        "vows": {
+          "version": "0.5.13",
+          "dependencies": {
+            "eyes": {
+              "version": "0.1.7",
+              "shasum": "1a59dafab790f142452e312bc14f5908094cb80c"
+            }
+          },
+          "shasum": "6c8175be56a171c8868f29064d8d76dd4a1878ba"
+        },
+        "optimist": {
+          "version": "0.2.6",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.2",
+              "shasum": "bd98c0330ffdf1acac1379311da78ddfba58d6f0"
+            }
+          },
+          "shasum": "ee38cb9818a259429b452dc97e546e4cbc10a4e4"
+        },
+        "bigint": {
+          "version": "0.3.7",
+          "from": "https://github.com/benadida/node-bigint/tarball/2ac68",
+          "shasum": "6d412aaec51d46fff91dfe266b573ce28c4461c7"
+        }
+      },
+      "shasum": "aefd224e5541db3eebd46fdff35c4211ea2769fe"
+    },
+    "mysql": {
+      "version": "0.9.5",
+      "dependencies": {
+        "hashish": {
+          "version": "0.0.4",
+          "dependencies": {
+            "traverse": {
+              "version": "0.6.3",
+              "shasum": "166f7e911b86584afe24dac57fe9291ed29cb045"
+            }
+          },
+          "shasum": "46d26ebb6a226104d0143475c2be36413c69473d"
+        }
+      },
+      "shasum": "b09fb43197021900d0ce3edf663a386e57b772a9"
+    },
+    "nodemailer": {
+      "version": "0.1.24",
+      "dependencies": {
+        "mimelib-noiconv": {
+          "version": "0.1.9",
+          "shasum": "afd20dee4766d7d41bf70ceceaf62b9d17f97f02"
+        }
+      },
+      "shasum": "75dcaa059bf63507180775a7e0f77502de863987"
+    },
+    "mkdirp": {
+      "version": "0.3.0",
+      "shasum": "4ff48e0d58492ea834ea9c68cbf4ea2c56b310fe"
+    },
+    "optimist": {
+      "version": "0.2.8",
+      "dependencies": {
+        "wordwrap": {
+          "version": "0.0.2",
+          "shasum": "bd98c0330ffdf1acac1379311da78ddfba58d6f0"
+        }
+      },
+      "shasum": "8f096ce70a8bcf14774a851ffbf249a9eaec5806"
+    },
+    "postprocess": {
+      "version": "0.2.4",
+      "shasum": "9f6201618cee5b4b339cb264a38b81753a85704f"
+    },
+    "semver": {
+      "version": "1.0.12",
+      "shasum": "e5ef5af65e993e78797391c1dcbe44ae5bf16995"
+    },
+    "temp": {
+      "version": "0.4.0",
+      "shasum": "8a7616decc5fb23f46c7956af98005d9c8b8761e"
+    },
+    "uglify-js": {
+      "version": "1.0.6",
+      "shasum": "64743df85344fddf3a863d0bdfe79251885821df"
+    },
+    "uglifycss": {
+      "version": "0.0.5",
+      "shasum": "20d759fb54915b15dc909590fa7b81fa4cf92628"
+    },
+    "underscore": {
+      "version": "1.3.1",
+      "shasum": "1174763d0cec7dceb74df00a742d653d03798942"
+    },
+    "urlparse": {
+      "version": "0.0.1",
+      "shasum": "7f313569c7ccef33eeb6272b15bceadd5721ffeb"
+    },
+    "validator": {
+      "version": "0.4.9",
+      "shasum": "efcb9f0ddea1c0012b019c9182d62125cec33c97"
+    },
+    "winston": {
+      "version": "0.6.2",
+      "dependencies": {
+        "async": {
+          "version": "0.1.22",
+          "shasum": "1b8727c98d5f80fec9f67bd34412a98d793b73ec"
+        },
+        "colors": {
+          "version": "0.6.0-1",
+          "shasum": "8d03a8ad1f2aca8313de77718d45aeb164b3cbc6"
+        },
+        "cycle": {
+          "version": "1.0.0",
+          "shasum": "53be9c0257112b0d84fc13e0befec04104b3e891"
+        },
+        "eyes": {
+          "version": "0.1.7",
+          "shasum": "1a59dafab790f142452e312bc14f5908094cb80c"
+        },
+        "pkginfo": {
+          "version": "0.2.3",
+          "shasum": "35affe142ca9f94c926a32a24d021602064e234a"
+        },
+        "request": {
+          "version": "2.9.203",
+          "shasum": "bf86669a78a8cab0ec0d94a980c35b0e8ed1ff61"
+        },
+        "stack-trace": {
+          "version": "0.0.6",
+          "shasum": "40cda2357997a43126ebcb2093b579391c2ebf7c"
+        }
+      },
+      "shasum": "561cf701664ebf74a471e6dede02beae02cd065a"
+    },
+    "seal": {
+      "version": "0.0.4",
+      "dependencies": {
+        "nomnom": {
+          "version": "1.5.2",
+          "dependencies": {
+            "underscore": {
+              "version": "1.1.7",
+              "shasum": "3c2a3361c2be727e38dbcc9a433fd78b1e9b8524"
+            },
+            "colors": {
+              "version": "0.5.1",
+              "shasum": "4bd26c804e231d1b197f89eeb32338c38f928b88"
+            }
+          },
+          "shasum": "7ed296f20474f9860a77d211c6b2891a0b7f4664"
+        },
+        "npm": {
+          "version": "1.1.24",
+          "dependencies": {
+            "semver": {
+              "version": "1.0.14"
+            },
+            "ini": {
+              "version": "1.0.2"
+            },
+            "slide": {
+              "version": "1.1.3"
+            },
+            "abbrev": {
+              "version": "1.0.3"
+            },
+            "graceful-fs": {
+              "version": "1.1.8"
+            },
+            "minimatch": {
+              "version": "0.2.2"
+            },
+            "nopt": {
+              "version": "1.0.10"
+            },
+            "node-uuid": {
+              "version": "1.3.3"
+            },
+            "proto-list": {
+              "version": "1.0.0"
+            },
+            "rimraf": {
+              "version": "2.0.1"
+            },
+            "request": {
+              "version": "2.9.153"
+            },
+            "which": {
+              "version": "1.0.5"
+            },
+            "tar": {
+              "version": "0.1.13"
+            },
+            "fstream": {
+              "version": "0.1.18"
+            },
+            "block-stream": {
+              "version": "0.0.5"
+            },
+            "inherits": {
+              "version": "1.0.0",
+              "from": "git://github.com/isaacs/inherits"
+            },
+            "mkdirp": {
+              "version": "0.3.2"
+            },
+            "read": {
+              "version": "0.0.2"
+            },
+            "lru-cache": {
+              "version": "1.0.5"
+            },
+            "node-gyp": {
+              "version": "0.4.5",
+              "dependencies": {
+                "ansi": {
+                  "version": "0.0.4"
+                },
+                "glob": {
+                  "version": "3.1.9"
+                }
+              }
+            },
+            "fstream-npm": {
+              "version": "0.1.0",
+              "dependencies": {
+                "fstream-ignore": {
+                  "version": "0.0.5"
+                }
+              }
+            },
+            "uid-number": {
+              "version": "0.0.3"
+            },
+            "archy": {
+              "version": "0.0.2"
+            },
+            "chownr": {
+              "version": "0.0.1"
+            }
+          },
+          "shasum": "8702c5756daccd266617db82910d9893e4a2ff58"
+        }
+      },
+      "shasum": "ca9330a8bdc23c653facf71e47d4271881f2cdf6"
+    },
+    "node-statsd": {
+      "version": "0.0.2",
+      "from": "https://github.com/downloads/lloyd/node-statsd/0509f85.tgz",
+      "dependencies": {
+        "mersenne": {
+          "version": "0.0.3",
+          "shasum": "2ed16f0f29da31a19137526569623832aa7fbc4c"
+        }
+      },
+      "shasum": "1a70a5161021c62d0988c69b37e95dd1d4db2fd7"
+    }
+  }
+}
